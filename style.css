@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.title{
+    text-align: center;
+    color: #31A5AC;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+.container{
+    width: 1200px;
+    display: flex;
+    margin: auto;
+    gap: 40px;
+}
+.left_img{
+    width: 705px;
+}
+.left_img img {
+    width: 100%;
+}
+.right_content{
+    width: 542px;
+    background-color: #F8F8F8;
+    font-family: Roboto;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+    gap: 20px;
+}
+.right_content input{
+    background-color: #DCDCDC;
+    height: 44px;
+    padding: 0 10px;
+    border: none;
+    outline: none;
+}
+.right_content h4{
+    font-size: 24px;
+}
+.right_content div{
+    font-size: 18px;
+}
+.right_content button{
+    padding: 15px 35px;
+    background-color: #59A5FF;
+    border: none;
+    cursor: pointer;
+}
+#food, #rent {
+    margin-left: 20px;
+}
