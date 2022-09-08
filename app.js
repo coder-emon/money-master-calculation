@@ -1,6 +1,6 @@
 function getAmmount(elementId) {
     const amountString = document.getElementById(elementId).value;
-    if(isNaN(amountString)){
+    if(isNaN(amountString) || amountString < 0) {
         alert('Please enter a valid numberr');
     }else{
 
@@ -20,10 +20,16 @@ calculateBtn.addEventListener('click', function () {
     const rent = getAmmount('rent');
     const clothes = getAmmount('clothes');
     const totalExpenses = food + rent + clothes;
-    const balance = income - totalExpenses;
-    console.log('cliked calculate btn')
-    totalExpensesElement.innerText = totalExpenses;
-    balanceELement.innerText = balance;
+    let balance;
+    if(totalExpenses > income){
+        alert('ইনকাম এর চেয়ে বেশি খরচ করতে পারবে নাহ')
+    }else{
+
+        balance = income - totalExpenses;
+        totalExpensesElement.innerText = totalExpenses;
+        balanceELement.innerText = balance;
+    }
+    // console.log('cliked calculate btn')
     // save button addEventListener
     saveBtn.addEventListener("click", function () {
         const save = getAmmount('save_percentage');
@@ -32,9 +38,14 @@ calculateBtn.addEventListener('click', function () {
         }else{
             const savePercentage = save / 100;
             const saveAmount = income * savePercentage;
-            const remainingBalance = balance - saveAmount;
-            saveAmountElement.innerText = saveAmount;
-            remainingBalanceElement.innerText = remainingBalance;
+            if(saveAmount > balance ){
+                alert("You can't save more than your balance")
+            }else{
+                
+                const remainingBalance = balance - saveAmount;
+                saveAmountElement.innerText = saveAmount;
+                remainingBalanceElement.innerText = remainingBalance;
+            }
         }
     })
 })
